@@ -8,6 +8,7 @@ import { Providers } from "@/components/providers"
 import { SiteBlob } from "@/components/site-blob"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
+import { Provider } from "@radix-ui/react-toast"
 
 export const metadata: Metadata = {
   title: siteConfig.name, 
@@ -32,9 +33,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontSans.variable
           )}
         >
+          <Providers>
           <div className="relative flex min-h-screen flex-col">
+            <SiteHeader />  
+            <SiteBlob />
             <div className="flex-1">{children}</div>
+            <SiteFooter />
           </div>
+          </Providers>
         </body>
       </html>
     </>
