@@ -1,6 +1,5 @@
 import { client } from "@/sanity/lib/client"
 import { groq } from "next-sanity"
-
 import { SanityProduct } from "@/config/inventory"
 import { ProductGallery } from "@/components/product-gallery"
 import { ProductInfo } from "@/components/product-info"
@@ -11,9 +10,11 @@ interface Props {
   }
 }
 
+// Definindo a função da página que recebe o parâmetro "slug" através de Props
 export default async function Page({ params }: Props) {
+  // Faz uma requisição ao Sanity CMS para obter os detalhes do produto com o slug especificado
   const product = await client.fetch<SanityProduct>(
-    groq`*[_type == "product" && slug.current == "${params.slug}"][0] {
+    groq`*[_type == "product" && slug.current == "${params.slug}"][0] { 
       _id,
       _createdAt,
       "id": _id,

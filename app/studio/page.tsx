@@ -8,10 +8,12 @@
  * You can learn more about the next-sanity package here:
  * https://github.com/sanity-io/next-sanity
  */
+
 import { NextStudio } from "next-sanity/studio"
 
 import config from "../../sanity.config"
 
+// Define a função StudioPage que renderiza o ambiente de autoria (Sanity Studio)
 export default function StudioPage() {
   return <NextStudio config={config} />
 }
