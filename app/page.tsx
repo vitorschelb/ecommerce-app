@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { client } from "@/sanity/lib/client"
 import { groq } from "next-sanity"
 
@@ -64,20 +65,23 @@ export default async function Page({ searchParams }: Props) {
   // Renderização do componente na página.
   return (
     <div>
-      {/* Parte superior da página com o título e descrição do site */}
-      <div className="px-4 pt-20 text-center">
-        <h1 className="text-4xl font-extrabold tracking-normal">
-          {siteConfig.name}
-        </h1>
-        <p className="mx-auto mt-4 max-w-3xl text-base">
-          {siteConfig.description}
-        </p>
+      <div>
+      <Image   // Placeholder para a cards animados dinâmicos
+          priority={true}
+          src="/products/bellezza.jpg"
+          alt="one"
+          width={1000}
+          height={1000}
+          className="w-full border-b-2 border-gray-200 object-cover dark:border-gray-800 "
+          placeholder="blur"
+          blurDataURL="data:..."
+        />
       </div>
 
       <div>
         {/* Componente principal */}
         <main className="mx-auto max-w-6xl px-6">
-          <div className="flex items-center justify-between border-b border-gray-200 pb-4 pt-24 dark:border-gray-800">
+          <div className="flex items-center justify-between border-b border-gray-200 pb-4 pt-10 dark:border-gray-800">
             <h1 className="text-xl font-bold tracking-tight sm:text-2xl">
               {/* Exibição do número de resultados encontrados */}
               {products.length} result{products.length > 1 && "s"}
